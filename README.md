@@ -7,3 +7,17 @@
 Simple Bee game made with Angular.js 1.5
 
 Demo: http://bee.d3lirium.eu/
+
+## run
+
+```sh
+$ npm install
+
+$ npm run serve
+```
+
+## test
+
+```sh
+$ npm run test
+```
