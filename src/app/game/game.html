@@ -1,0 +1,29 @@
+<div class="game">
+  <div class="game-over" ng-show="$ctrl.gameOver">
+    <h1>Game Over</h1>
+    <div class="buttons">
+      <a class="ghost-btn" href="#" ng-click="$ctrl.reset()">Reset game</a>
+    </div>
+  </div>
+  <ul>
+    <li class="group {{groupName}}" ng-repeat="(groupName, group) in $ctrl.bees track by groupName">
+      <ul>
+        <li class="bee {{bee.id}}" ng-class="{'dead': !bee.isAlive()}" ng-repeat="bee in group track by bee.id">
+          <img ng-src="/assets/{{bee.type}}.png" alt="{{bee.type}}" />
+          <div class="details">
+            <h3 class="title">{{bee.type}}</h3>
+            <p class="life-num">{{bee.life}} / {{bee.lifeMax}}</p>
+            <div class="life-bar">
+              <div class="life" ng-style="{'width': bee.getLifePercentage() + '%'}"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </li>
+  </ul>
+  <div class="buttons">
+    <a class="ghost-btn dark" href="#" ng-click="$ctrl.hitRandomBee()">Hit Random Bee</a>
+    <a class="ghost-btn" href="#" ng-click="$ctrl.reset()">Reset game</a>
+  </div>
+</div>
