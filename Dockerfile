@@ -1,6 +1,14 @@
-FROM quay.io/d3lirium/basic-frontend
+FROM node:6
 
 MAINTAINER Paolo Chiabrera <paolo.chiabrera@gmail.com>
+
+ENV NODE_ENV production
+
+# Install nginx
+
+RUN apt-get update
+
+RUN apt-get -y install nginx
 
 # cache npm install
 
@@ -24,4 +32,4 @@ RUN yes | cp ./nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
-CMD ["nginx", "-s", "reload"]
+CMD ["nginx", "-g", "daemon off;"]
